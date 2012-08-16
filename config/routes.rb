@@ -1,6 +1,4 @@
 MoreThanMe::Application.routes.draw do
-  devise_for :users
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
   root :to => "home#index"
@@ -10,6 +8,9 @@ MoreThanMe::Application.routes.draw do
   devise_scope :user do
     get 'sign_in', :to => 'devise/sessions#new'
   end
+
+  resources :campaigns
+  resources :users, :only => [:index]
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

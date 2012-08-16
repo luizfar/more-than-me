@@ -1,0 +1,2 @@
+describe CampaignsController do
+end

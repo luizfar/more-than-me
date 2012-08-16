@@ -1,0 +1,16 @@
+New campaign!
+<%= form_for @campaign do |f| %>
+  <div>
+    <p><%= f.label :title %></p>
+    <p><%= f.text_field :title %></p>
+  </div>
+  <div>
+    <p><%= f.label :description %></p>
+    <p><%= f.text_area :description %></p>
+  </div>
+  <div>
+    <p><%= f.label :goal_in_cents %></p>
+    <p><%= f.text_field :goal_in_cents %></p>
+  </div>
+  <%= f.submit %>
+<% end %>
