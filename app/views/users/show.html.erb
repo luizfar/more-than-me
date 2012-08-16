@@ -1,6 +1,10 @@
-<%= link_to 'Create campaign', new_campaign_path %>
+Welcome, <%= current_user.email %>!
+<br/>
+
+<p><%= link_to 'Create a new campaign', new_campaign_path %></p>
 
 <% if @campaigns.present? %>
+  <p>Your campaigns:</p>
   <ul>
     <% @campaigns.each do |campaign| %>
       <li> <%= link_to campaign.title, campaign_path(campaign) %> </li>
