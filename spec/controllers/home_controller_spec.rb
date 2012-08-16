@@ -7,6 +7,6 @@ describe HomeController do
 
     get :index
 
-    response.should redirect_to users_path
+    response.should redirect_to user_path(@user)
   end
 end

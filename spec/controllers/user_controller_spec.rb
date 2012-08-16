@@ -4,11 +4,11 @@ describe UsersController do
     it "should list all user's campaigns when she logs in" do
       user = FactoryGirl.create(:user)
       login_as user
-      
+
       my_30s_bday = FactoryGirl.create(:campaign, :title => 'My 30th birthday', :owner => user)
       xmas_campaign = FactoryGirl.create(:campaign, :title => 'Christmas is for everyone', :owner => user)
 
-      get :index
+      get :show, :id => user.id
 
       assigns(:campaigns).should =~ [my_30s_bday, xmas_campaign]
     end
@@ -16,7 +16,9 @@ describe UsersController do
 
   describe 'user is not logged in' do
     it "should not list any campaigns" do
-      get :index
+      user = FactoryGirl.create(:user)
+
+      get :show, :id => user.id
 
       assigns(:campaigns).should eql nil
     end
