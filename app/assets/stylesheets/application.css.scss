@@ -11,3 +11,25 @@
  *= require_self
  *= require_tree .
 */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+
+$primary-color: #beb4a8;
+$secondary-color: #aa0288;
+
+body {
+  background: url('brown.png');
+  margin: 0;
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif;
+  #site_content {
+    width: 1000px;
+    margin: 5px auto;
+    #page_body {
+      clear: both;
+      background: $primary_color;
+      padding: 10px;
+    }
+  }
+}
+
+a { text-decoration: none; }

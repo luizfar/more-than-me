@@ -61,6 +61,7 @@ GEM
     factory_girl_rails (4.0.0)
       factory_girl (~> 4.0.0)
       railties (>= 3.0.0)
+    haml (3.1.7)
     heroku (2.11.0)
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
@@ -155,6 +156,7 @@ DEPENDENCIES
   debugger
   devise
   factory_girl_rails
+  haml
   heroku
   jquery-rails
   pg

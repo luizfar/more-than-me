@@ -1,0 +1,13 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %title More Than Me
+    = stylesheet_link_tag :application
+    = javascript_include_tag :application
+  %body
+    #site_content
+      = render :partial =>  "shared/navigation"
+      #page_body
+        = yield
+      = render :partial =>  "shared/footer"

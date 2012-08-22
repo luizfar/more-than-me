@@ -26,6 +26,7 @@ group :test, :development do
   gem "factory_girl_rails"
 end
 
+gem 'haml'
 gem 'jquery-rails'
 gem 'debugger'
 
