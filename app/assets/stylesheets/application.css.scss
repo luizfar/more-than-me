@@ -13,9 +13,7 @@
 */
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
-
-$primary-color: #beb4a8;
-$secondary-color: #aa0288;
+@import "vars_and_mixins";
 
 body {
   background: url('brown.png');

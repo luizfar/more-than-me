@@ -1,4 +1,5 @@
-@import "application";
+@import "vars_and_mixins";
+
 .header {
   height: 96px;
   margin-bottom: 10px;
@@ -8,17 +9,20 @@
     width: 151px;
     float: left;
   }
+
   a {
     color: $primary-color;
     &:hover {
       color: $secondary-color;
     }
   }
+
   #login_welcome {
     font-size: 13px;
     color: darken($primary-color, 15%);
     float: right;
   }
+
   #top_navigation {
     float: left;
     width: 849px;
@@ -36,4 +40,3 @@
     }
   }
 }
-
