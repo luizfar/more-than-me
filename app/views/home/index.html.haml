@@ -1,13 +1,14 @@
-%ul
-  %li
-    = link_to('Sign up', new_user_registration_path)
-  %li
-    = link_to('Sign in', new_user_session_path)
-  %li
-    = link_to('Sign out', destroy_user_session_path)
+.image.donate
 
-%div
-  Hey,
-  = user_signed_in? ? current_user.email : 'dude or dudette'
+.donate_sidebar
+  %h2
+    Join our fight!
+  .type.birthday
+    .cupcake
+    .button= link_to('Donate your birthday', '')
+  .type.one_time
+    .change
+    .button= link_to('Make a one time donation', '')
 
 
+.clear
