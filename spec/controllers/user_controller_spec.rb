@@ -5,8 +5,8 @@ describe UsersController do
       user = FactoryGirl.create(:user)
       login_as user
 
-      my_30s_bday = FactoryGirl.create(:campaign, :title => 'My 30th birthday', :owner => user)
-      xmas_campaign = FactoryGirl.create(:campaign, :title => 'Christmas is for everyone', :owner => user)
+      my_30s_bday = FactoryGirl.create(:birthday, :title => 'My 30th birthday', :owner => user)
+      xmas_campaign = FactoryGirl.create(:birthday, :title => 'Christmas is for everyone', :owner => user)
 
       get :show, :id => user.id
 

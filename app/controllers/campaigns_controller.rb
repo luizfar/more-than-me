@@ -5,13 +5,12 @@ class CampaignsController < ApplicationController
   end
 
   def new
-    @campaign = Campaign.new
+    @campaign = Campaign.new(:campaign_type => params[:campaign_type].to_sym)
   end
 
   def create
     @campaign = Campaign.new(params[:campaign].merge(:owner => current_user, :end_date => Date.today + 30.days))
     @campaign.save!
-
     redirect_to campaign_path(@campaign)
   end
 end

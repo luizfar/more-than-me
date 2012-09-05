@@ -1,0 +1,13 @@
+%h1
+  = @campaign.title
+  %p
+    Description:
+    = @campaign.description
+  %p
+    Goal:
+    = (@campaign.goal_in_cents / 100)
+  %p
+    End Date:
+    = @campaign.end_date
+
+=link_to "Back", root_path
