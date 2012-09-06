@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::Base
-  before_filter :store_location
   protect_from_forgery
 
   def store_location
-    session[:return_url] = request.referer unless user_signed_in?
+    session[:return_url] = request.fullpath if session[:return_url].nil? && !user_signed_in?
   end
 
   def after_sign_in_path_for(resource)

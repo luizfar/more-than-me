@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :store_location, :authenticate_user!, :only => [:new, :create]
 
   def show
     @campaign = Campaign.find(params[:id])
