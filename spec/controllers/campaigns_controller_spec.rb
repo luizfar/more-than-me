@@ -1,18 +1,17 @@
 describe CampaignsController do
+  include Devise::TestHelpers
 
-	describe '#new' do
-	  it "should create a campaign with a type from params" do
-	    post :new, :campaign_type => :birthday
+  before :each do
+    request.env['warden'] = mock(Warden, :authenticate => FactoryGirl.create(:user), :authenticate! => FactoryGirl.create(:user))
+  end
 
-	    campaign = assigns(:campaign)
-	    puts campaign.inspect
-	    campaign.campaign_type.should eql :birthday
-	  end
-	end
+  describe '#new' do
+    it "should create a campaign with a type from params" do
+      post :new, :campaign_type => :birthday
 
-	describe '#create' do
-		it 'should create a campaign with given params'
+      campaign = assigns(:campaign)
+      campaign.campaign_type.should eql :birthday
+    end
+  end
 
-
-	end
 end

@@ -1,7 +1,7 @@
 Welcome, <%= current_user.email %>!
 <br/>
 
-<p><%= link_to 'Create a new campaign', new_campaign_path %></p>
+<p><%= link_to 'Create a new campaign', new_campaign_path(:campaign_type => :birthday) %></p>
 
 <% if @campaigns.present? %>
   <p>Your campaigns:</p>
