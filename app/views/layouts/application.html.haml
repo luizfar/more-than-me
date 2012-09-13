@@ -6,8 +6,47 @@
     = stylesheet_link_tag :application
     = javascript_include_tag :application
   %body
-    #site_content
-      = render :partial =>  "shared/navigation"
-      #page_body
-        = yield
-      = render :partial =>  "shared/footer"
+    #wrapper
+    #container
+      #header
+        %a{:href => 'http://morethanme.org'}
+          %img#logo{:src => 'http://morethanme.org/images/logo.png'}
+        %ul#main-menu
+          %li{:class => 'about'}
+            = link_to 'About', 'http://morethanme.org/about.html'
+          %li{:class => 'sheneedsyou'}
+            = link_to 'She Needs You', 'http://morethanme.org/sheneedsyou.html'
+          %li{:class => 'meether'}
+            = link_to 'Meet Her', 'http://morethanme.org/meether.html'
+          %li{:class => 'donate'}
+            = link_to 'Donate', 'http://morethanme.org/donate.html'
+          %li{:class => 'blog'}
+            = link_to 'Blog', 'http://morethanme.org/blog.html'
+        .clear
+
+      #content
+        #main-content
+          = yield
+
+      #footer
+        #social-icons
+          %a{:onclick => "_gaq.push(['_trackEvent', 'Outgoing Links', 'Click', 'facebook']);", :href => 'https://www.facebook.com/morethanme'}
+            %img{:src => 'http://morethanme.org/images/facebook_button.png'}
+          %a{:onclick => "_gaq.push(['_trackEvent', 'Outgoing Links', 'Click', 'twitter']);", :href => 'http://twitter.com/MorethanMeORG'}
+            %img{:src => 'http://morethanme.org/images/twitter_button.png'}
+        #footer-menu
+          %ul
+            %li
+              = link_to 'ABOUT US', 'http://morethanme.org/about.html'
+            %li
+              = link_to 'SHE NEEDS YOU', 'http://morethanme.org/sheneedsyou.html'
+            %li
+              = link_to 'MEET HER', 'http://morethanme.org/meether.html'
+            %li
+              = link_to 'DONATE', 'http://morethanme.org/donate.html'
+            %li
+              = link_to 'BLOG', 'http://morethanme.org/blog'
+            %li{:style => 'border-right: none;'}
+              = link_to 'SITE MAP', 'http://morethanme.org/sitemap.html'
+          .clear
+        .clear
