@@ -1,13 +1,14 @@
 Welcome, <%= current_user.email %>!
 <br/>
 
-<p><%= link_to 'Create a new campaign', new_campaign_path(:campaign_type => :birthday) %></p>
-
 <% if @campaigns.present? %>
-  <p>Your campaigns:</p>
+  <p>Here are your campaigns:</p>
   <ul>
     <% @campaigns.each do |campaign| %>
       <li> <%= link_to campaign.title, campaign_path(campaign) %> </li>
     <% end %>
   </ul>
 <% end %>
+
+<p>Create a new campaign?</p>
+<%= render :partial => "campaigns/new_campaign_menu" %>
