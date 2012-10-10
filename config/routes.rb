@@ -9,7 +9,11 @@ MoreThanMe::Application.routes.draw do
     get 'sign_in', :to => 'devise/sessions#new'
   end
 
-  resources :campaigns
+  resources :campaigns do
+    collection do
+      get :do_create
+    end
+  end
   resources :users, :only => [:show]
 
   # Sample of regular route:
