@@ -1,14 +1,47 @@
-.image.donate
+%p
+  Living More than Me is a simple way for you to create your own fundraising campaigns and easily track their progress.
+%p
+  Make a page today, share it with your family and friends, and start helping get more girls into school!
+%p
+  Here’s how it works:
+%ol
+  %li
+    Out of the world’s 130 million out of school youth, 70% are girls. Thats 91 million girls!
+  %li
+    Start a campaign on Living More than Me and fundraise away! You can give up your birthday presents, run a race,
+    have a bake sale, the possibilities are endless!
+  %li
+    Track your progress as you raise money to get girls off the street and into school.
 
-.donate_sidebar
+#campaign-type-selector
   %h2
-    Join our fight!
-  .type.birthday
-    .cupcake
-    .button= link_to('Donate your birthday', new_campaign_path(:campaign_type => 'birthday'))
-  .type.one_time
-    .change
-    .button= link_to('Make a one time donation', '')
-
-
-.clear
+    Choose your campaign type
+  %ul.campaign-types-list
+    %li
+      %a.campaign-type.birthday{:href => new_campaign_path(:campaign_type => :birthday)}
+        %span.image
+        %h3
+          Give up birthday gifts
+        %p
+          Make your birthday matter this year.
+        %p
+          Give up the gifts and ask for your age in dollars instead.
+    %li
+      %a.campaign-type.something-sporty{:href => new_campaign_path(:campaign_type => :sporty)}
+        %span.image
+        %h3
+          Do something sporty
+        %p
+          Run, walk, bike, swim, skydive, conquer a triathlon, or sail the ocean... are you tough enough?
+    %li
+      %a.campaign-type.special-occasion{:href => new_campaign_path(:campaign_type => :special_occasion)}
+        %span.image
+        %h3
+          Use a special occasion
+        %p
+          Use your wedding, anniversary, christening, shower, bar or bat-mitzvah to raise money.
+    .clear
+  /   .button= link_to('Donate your birthday', new_campaign_path(:campaign_type => 'birthday'))
+  / .type.one_time
+  /   .change
+  /   .button= link_to('Make a one time donation', '')

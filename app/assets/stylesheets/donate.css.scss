@@ -1,91 +1,60 @@
-.image.donate {
-  background: url('donate_infographic.jpeg');
-  height: 821px;
-  width: 600px;
-  float: left;
-  border: {
-    top: 20px;
-    left: 15px;
-    right: 0;
-    bottom: 10px;
-    color: white;
-    style: solid;
-  }
+p {
+  margin: 0;
+  padding: 0;
 }
-.donate_sidebar {
-  float: right;
-  width: 360px;
-  background: white;
+
+#campaign-type-selector {
   h2 {
-    font-size: 32px;
-    color: #777;
+    font-size: 30px;
+    line-height: 35px;
+    color: #2E9DF7;
+    text-transform: uppercase;
     text-align: center;
-    margin-top: 10px;
   }
-  .type {
-    margin: 10px;
-    clear: both;
-    .cupcake {
+
+  .campaign-types-list {
+    width: 915px;
+    margin: 0 auto;
+    padding: 0;
+    list-style-type: none;
+
+    li {
       float: left;
-      background: url('cupcake.png');
-      height: 146px;
-      width: 135px;
+      width: 305px;
     }
-    .change {
-      float: left;
-      background: url('change.png');
-      height: 100px;
-      width: 135px;
-    }
-    .button a {
-      border: 1px solid red;
-      border-radius: 10px;
-      padding: 4px 12px;
-      font-size: 16px;
-      font-weight: 600;
-      margin: 51px 0 0 13px;
-      float: left;
-      max-width: 166px;
-      display: inline-block;
-      outline: none;
-      cursor: pointer;
-      text-align: center;
+
+    .campaign-type {
+      border: 1px solid #E5E5E5;
+      border-radius: 4px;
+      display: block;
       text-decoration: none;
-      text-shadow: 0 1px 1px rgba(0,0,0,.3);
-      -webkit-border-radius: .5em;
-      -moz-border-radius: .5em;
-      border-radius: .5em;
-      -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-      box-shadow: 0 1px 2px rgba(0,0,0,.2);
-      color: #fef4e9;
-      border: solid 1px #da7c0c;
-      background: #f78d1d;
-      background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
-      background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
-      filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
-      &:hover {
-        text-decoration: none;
-        background: #f47c20;
-        background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
-        background: -moz-linear-gradient(top,  #f88e11,  #f06015);
-        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+      text-align: center;
+      padding: 15px 30px;
+      margin: 15px;
 
+      span.image {
+        display: inline-block;
+        width: 156px;
+        height: 130px;
       }
-      &:active {
-        position: relative;
-        top: 1px;
-        color: #fcd3a5;
-        background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
-        background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
-        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
 
+      h3 {
+        font-size: 15px;
+        line-height: 20px;
+        text-transform: uppercase;
+      }
+
+      &.birthday > span.image {
+        background-image: image-url('ctype-bday.jpeg');
+      }
+
+      &.something-sporty > span.image {
+        background-image: image-url('ctype-sporty.jpeg');
+      }
+
+      &.special-occasion > span.image {
+        background-image: image-url('ctype-sp-occ.jpeg');
       }
     }
-  }
-  .one_time {
-    .change { margin: 55px auto 35px; }
-    .button a { margin-top: 77px; }
   }
 }
-
