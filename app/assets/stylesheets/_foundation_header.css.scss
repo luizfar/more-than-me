@@ -1,31 +1,28 @@
 #foundation-header {
-  height: 40px;
   background: url('foundation-bg.jpg');
 
   #foundation-logo {
-    float: left;
     background: url('foundation-logo.jpg') no-repeat;
+    float: left;
     margin: 7px 0 0 22px;
     width: 156px;
     height: 33px;
   }
 
   #foundation-menu {
-    float: right;
+    margin: 0;
     li {
       color: $darker-pink;
-      display: inline-block;
       line-height: 40px;
       font-size: $small-text;
-      text-transform: lowercase;
       a {
         @include darker-link;
       }
     }
-    li + li {
-      &:before {
-        content: '-';
-      }
-    }
   }
+}
+#foundation-header #foundation-menu li a:hover,
+#foundation-header #foundation-menu li a:active {
+  background-color: $dark-pink;
+  color: white;
 }

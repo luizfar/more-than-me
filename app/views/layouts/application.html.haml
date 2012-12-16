@@ -7,54 +7,54 @@
     = stylesheet_link_tag :application
     %link{href: 'http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800', rel: 'stylesheet', type: 'text/css'}
   %body
-    #foundation-header
+    #foundation-header.top-bar
       .row
-        .twelve.columns.centered
-          #foundation-logo
-          %ul#foundation-menu
-            %li{class: 'about'}
-              = link_to 'About', 'http://morethanme.org/about.html'
-            %li{class: 'sheneedsyou'}
-              = link_to 'She Needs You', 'http://morethanme.org/sheneedsyou.html'
-            %li{class: 'meether'}
-              = link_to 'Meet Her', 'http://morethanme.org/meether.html'
-            %li{class: 'donate'}
-              = link_to 'Donate', 'http://morethanme.org/donate.html'
-            %li{class: 'blog'}
-              = link_to 'Blog', 'http://morethanme.org/blog.html'
+        #foundation-logo
+        %ul#foundation-menu.right
+          %li.about
+            = link_to 'About', 'http://morethanme.org/about.html'
+          %li.sheneedsyou
+            = link_to 'She Needs You', 'http://morethanme.org/sheneedsyou.html'
+          %li.meether
+            = link_to 'Meet Her', 'http://morethanme.org/meether.html'
+          %li.donate
+            = link_to 'Donate', 'http://morethanme.org/donate.html'
+          %li.blog
+            = link_to 'Blog', 'http://morethanme.org/blog.html'
     .row
-      .two.columns
+      .six.columns
         #platform-logo
           = link_to image_tag('main-logo.jpg', alt: 'More Than Me Platform', title: 'More Than Me Platform'), root_path
-      .six.columns
+      .six.columns.end
         .row
           #account-actions.right-aligned
             - if user_signed_in?
-              = link_to 'Sign Out', destroy_user_session_path, id: 'sign-out-link'
+              = link_to 'Log Out', destroy_user_session_path, id: 'sign-out-link'
             - else
               = link_to 'Log In', new_user_session_path, id: 'log-in-link'
               &nbsp;&middot;&nbsp;
               = link_to 'Sign Up', new_user_registration_path, id: 'sign-up-button'
         - if user_signed_in?
           .row
-            #profile
-              #data
-                %p.name
-                  Luiz Ribeiro
-                %p.location
-                  Porto Alegre, Brazil
-              #amount-raised
+            #profile.twelve.columns
+              #data.five.columns
                 %p
-                  raised the total amount of
-                %p.amount
-                  $550
+                  %a.name{href: '#'} Luiz Ribeiro
+                  %br
+                  %span.location Porto Alegre, Brazil
+              #amount-raised.seven.columns
+                .six.columns
+                  %p
+                    raised the total amount of
+                .six.columns
+                  %span.amount $550
     #main-content
       = yield
     #footer
       .row
         #footer-logo.four.columns
         #footer-menu.eight.columns.end
-          %ul
+          %ul.inline-list
             %li= link_to 'ABOUT US', 'http://morethanme.org/about.html'
             %li= link_to 'SHE NEEDS YOU', 'http://morethanme.org/sheneedsyou.html'
             %li= link_to 'MEET HER', 'http://morethanme.org/meether.html'

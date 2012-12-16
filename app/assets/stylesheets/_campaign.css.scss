@@ -1,35 +1,28 @@
-@import "base";
-
 #campaign-name {
-  font-size: $big-text;
-  float: left;
-  line-height: 80px;
+  font-size: 44px;
+  line-height: 44px;
 }
-
 #donate-container {
-  float: right;
-  height: 80px;
-  width: 590px;
-  background: $bright-pink;
-  padding: 17px 23px 21px 45px;
-  @include border-radius(6px);
-  margin-bottom: 20px;
-  p {
-    width: 300px;
-    color: $white;
-    float: left;
-    margin-top: 5px;
-  }
-  #donate-button {
-    @include big-button;
-    float: right;
-  }
+  padding: 0 0 0 30px;
 }
-
-#campaign-stats {
-  clear: both;
-  width: 100%;
-  height: 80px;
-  @include border-radius(6px);
-  background: $light-gray;
+div.progress {
+  height: 44px;
+}
+.meter {
+  color: white;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 36px;
+  text-shadow: #000 1px 1px 0;
+}
+.stats-box {
+  text-align: center;
+}
+.stats-name {
+  color: $bright-pink;
+}
+.stats-value {
+  font-size: 28px;
+  line-height: 44px;
+  font-weight: bold;
 }

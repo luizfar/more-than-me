@@ -2,25 +2,20 @@ p {
   margin: 0;
   padding: 0;
 }
-
 #campaign-type-selector {
   h2 {
-    color: $dark-pink;
     text-transform: uppercase;
     text-align: center;
   }
-
   .campaign-types-list {
     width: 915px;
     margin: 0 auto;
     padding: 0;
     list-style-type: none;
-
     li {
       float: left;
       width: 305px;
     }
-
     .campaign-type {
       border: 1px solid #E5E5E5;
       border-radius: 4px;
@@ -29,27 +24,22 @@ p {
       text-align: center;
       padding: 15px 30px;
       margin: 15px;
-
       span.image {
         display: inline-block;
         width: 156px;
         height: 130px;
       }
-
       h3 {
         font-size: 15px;
         line-height: 20px;
         text-transform: uppercase;
       }
-
       &.birthday > span.image {
         background-image: image-url('ctype-bday.jpeg');
       }
-
       &.something-sporty > span.image {
         background-image: image-url('ctype-sporty.jpeg');
       }
-
       &.special-occasion > span.image {
         background-image: image-url('ctype-sp-occ.jpeg');
       }

@@ -8,13 +8,14 @@
 @import "donate";
 @import "foundation_header";
 @import "main_header";
-
+@import "campaign";
 
 body {
   font-family: $fontFamily;
   font-size: 14px;
   line-height: 21px;
   background: url('background.png') repeat scroll left top !important;
+  color: $dark-gray;
 }
 .right-aligned {
   text-align: right;

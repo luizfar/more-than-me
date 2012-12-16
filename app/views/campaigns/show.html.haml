@@ -1,41 +1,54 @@
 #campaign
-  %h1#campaign-name
-    = @campaign.title
-  #donate-container
+  .row
+    .five.columns
+      %h1#campaign-name
+        = @campaign.title
+    #donate-container.seven.columns
+      %br
+      .panel.callout.radius
+        .row
+          .seven.columns
+            %p
+              Show your friends you are dedicated to our cause and be the first to donate!
+          .five.columns.end
+            = link_to 'Donate now!', '', id: 'donate-button', class: 'large button'
+  #campaign-stats.stats-box.panel
+    .row
+      .one.columns
+        .stats-name
+          Raised
+        .stats-value
+          $550
+      .four.columns
+        .progress.twelve
+          .meter{style: 'width: 27,5%'} 27.5%
+      .one.columns
+        .stats-name
+          Goal
+        .stats-value
+          $2,000
+      .two.columns
+        .stats-name
+          Girls in School
+        .stats-value
+          4
+      .two.columns
+        .stats-name
+          Donations
+        .stats-value
+          55
+      .two.columns.end
+        .stats-name
+          Days Left
+        .stats-value
+          31
+  .row
     %p
-      Show your friends you are dedicated to our cause and be the first to donate!
-    = link_to 'Donate now!', '', id: 'donate-button'
-  #campaign-stats
-    .stats-box
-      .stats-name
-        Raised
-      .stats-value
-        $550
-      .stats-name
-        Goal
-      .proggress-bar
-        .fill
-          27.5%
-      .stats-value
-        $2,000
-      .stats-name
-        Girls in School
-      .stats-value
-        4
-      .stats-name
-        Donations
-      .stats-value
-        55
-      .stats-name
-        Days Left
-      .stats-value
-        31
-  %p
-    Description:
-    = @campaign.description
-  %p
-    Goal:
-    = (@campaign.goal_in_cents / 100)
-  %p
-    End Date:
-    = @campaign.end_date
+      Description:
+      = @campaign.description
+    %p
+      Goal:
+      = (@campaign.goal_in_cents / 100)
+    %p
+      End Date:
+      = @campaign.end_date
