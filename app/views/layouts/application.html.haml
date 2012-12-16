@@ -5,7 +5,7 @@
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
     %title More Than Me
     = stylesheet_link_tag :application
-    = javascript_include_tag :application
+    %link{href: 'http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800', rel: 'stylesheet', type: 'text/css'}
   %body
     #foundation-header
       .row
@@ -28,14 +28,15 @@
           = link_to image_tag('main-logo.jpg', alt: 'More Than Me Platform', title: 'More Than Me Platform'), root_path
       .six.columns
         .row
-          #account-actions
+          #account-actions.right-aligned
             - if user_signed_in?
               = link_to 'Sign Out', destroy_user_session_path, id: 'sign-out-link'
             - else
               = link_to 'Log In', new_user_session_path, id: 'log-in-link'
+              &nbsp;&middot;&nbsp;
               = link_to 'Sign Up', new_user_registration_path, id: 'sign-up-button'
-        .row
-          - if user_signed_in?
+        - if user_signed_in?
+          .row
             #profile
               #data
                 %p.name
@@ -47,25 +48,21 @@
                   raised the total amount of
                 %p.amount
                   $550
-
-      #main-content
-        = yield
-
-      #footer
-        #footer-logo
-        #footer-menu
+    #main-content
+      = yield
+    #footer
+      .row
+        #footer-logo.four.columns
+        #footer-menu.eight.columns.end
           %ul
-            %li
-              = link_to 'ABOUT US', 'http://morethanme.org/about.html'
-            %li
-              = link_to 'SHE NEEDS YOU', 'http://morethanme.org/sheneedsyou.html'
-            %li
-              = link_to 'MEET HER', 'http://morethanme.org/meether.html'
-            %li
-              = link_to 'DONATE', 'http://morethanme.org/donate.html'
-            %li
-              = link_to 'BLOG', 'http://morethanme.org/blog'
-            %li{:style => 'border-right: none;'}
-              = link_to 'SITE MAP', 'http://morethanme.org/sitemap.html'
-        %p#copyright
-          More Than Me is a five star rated non-profit on Global Giving. We stretch every $ given to us to make the biggest impact possible. Our EIN # 26.259.9199 <br/>&copy; 2008-2010 More than Me Foundation a 501(c)(3) non-profit organization 
+            %li= link_to 'ABOUT US', 'http://morethanme.org/about.html'
+            %li= link_to 'SHE NEEDS YOU', 'http://morethanme.org/sheneedsyou.html'
+            %li= link_to 'MEET HER', 'http://morethanme.org/meether.html'
+            %li= link_to 'DONATE', 'http://morethanme.org/donate.html'
+            %li= link_to 'BLOG', 'http://morethanme.org/blog'
+            %li{:style => 'border-right: none;'}= link_to 'SITE MAP', 'http://morethanme.org/sitemap.html'
+      .row
+        .twelve.columns
+          %p#copyright
+            More Than Me is a five star rated non-profit on Global Giving. We stretch every $ given to us to make the biggest impact possible. Our EIN # 26.259.9199 <br/>&copy; 2008-2010 More than Me Foundation a 501(c)(3) non-profit organization 
+    = javascript_include_tag :application

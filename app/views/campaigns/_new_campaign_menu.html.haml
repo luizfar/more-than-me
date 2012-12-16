@@ -1,8 +1,11 @@
 #campaign-type-selector
-  %h2
-    Choose your campaign type
-  %ul.campaign-types-list
-    %li
+  .row
+    .twelve.columns
+      %h2
+        Choose your campaign type
+
+  %ul.campaign-types-list.row
+    %li.four.columns
       %a.campaign-type.birthday{:href => new_campaign_path(:campaign_type => :birthday)}
         %span.image
         %h3
@@ -11,18 +14,17 @@
           Make your birthday matter this year.
         %p
           Give up the gifts and ask for your age in dollars instead.
-    %li
+    %li.four.columns
       %a.campaign-type.something-sporty{:href => new_campaign_path(:campaign_type => :sporty)}
         %span.image
         %h3
           Do something sporty
         %p
           Run, walk, bike, swim, skydive, conquer a triathlon, or sail the ocean... are you tough enough?
-    %li
+    %li.four.columns.end
       %a.campaign-type.special-occasion{:href => new_campaign_path(:campaign_type => :special_occasion)}
         %span.image
         %h3
           Use a special occasion
         %p
           Use your wedding, anniversary, christening, shower, bar or bat-mitzvah to raise money.
-    .clear
