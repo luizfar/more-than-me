@@ -6,34 +6,49 @@
     = stylesheet_link_tag :application
     = javascript_include_tag :application
   %body
-    #wrapper
-    #container
-      #header
-        %a{:href => 'http://morethanme.org'}
-          %img#logo{:src => 'http://morethanme.org/images/logo.png'}
-        %ul#main-menu
-          %li{:class => 'about'}
+    #foundation-header
+      .wrapper
+        #foundation-logo
+        %ul#foundation-menu
+          %li{class: 'about'}
             = link_to 'About', 'http://morethanme.org/about.html'
-          %li{:class => 'sheneedsyou'}
+          %li{class: 'sheneedsyou'}
             = link_to 'She Needs You', 'http://morethanme.org/sheneedsyou.html'
-          %li{:class => 'meether'}
+          %li{class: 'meether'}
             = link_to 'Meet Her', 'http://morethanme.org/meether.html'
-          %li{:class => 'donate'}
+          %li{class: 'donate'}
             = link_to 'Donate', 'http://morethanme.org/donate.html'
-          %li{:class => 'blog'}
+          %li{class: 'blog'}
             = link_to 'Blog', 'http://morethanme.org/blog.html'
-        .clear
+    .main-wrapper
+      #main-header
+        #platform-logo
+          = link_to image_tag('main-logo.jpg', alt: 'More Than Me Platform', title: 'More Than Me Platform'), root_path
+        #account-container
+          #account-actions
+            - if user_signed_in?
+              = link_to 'Sign Out', destroy_user_session_path, id: 'sign-out-link'
+            - else
+              = link_to 'Log In', new_user_session_path, id: 'log-in-link'
+              = link_to 'Sign Up', new_user_registration_path, id: 'sign-up-button'
+          - if user_signed_in?
+            #profile
+              #data
+                %p.name
+                  Luiz Ribeiro
+                %p.location
+                  Porto Alegre, Brazil
+              #amount-raised
+                %p
+                  raised the total amount of
+                %p.amount
+                  $550
 
-      #content
-        #main-content
-          = yield
+      #main-content
+        = yield
 
       #footer
-        #social-icons
-          %a{:onclick => "_gaq.push(['_trackEvent', 'Outgoing Links', 'Click', 'facebook']);", :href => 'https://www.facebook.com/morethanme'}
-            %img{:src => 'http://morethanme.org/images/facebook_button.png'}
-          %a{:onclick => "_gaq.push(['_trackEvent', 'Outgoing Links', 'Click', 'twitter']);", :href => 'http://twitter.com/MorethanMeORG'}
-            %img{:src => 'http://morethanme.org/images/twitter_button.png'}
+        #footer-logo
         #footer-menu
           %ul
             %li
@@ -48,5 +63,5 @@
               = link_to 'BLOG', 'http://morethanme.org/blog'
             %li{:style => 'border-right: none;'}
               = link_to 'SITE MAP', 'http://morethanme.org/sitemap.html'
-          .clear
-        .clear
+        %p#copyright
+          More Than Me is a five star rated non-profit on Global Giving. We stretch every $ given to us to make the biggest impact possible. Our EIN # 26.259.9199 <br/>&copy; 2008-2010 More than Me Foundation a 501(c)(3) non-profit organization 

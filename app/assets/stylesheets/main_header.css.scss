@@ -1,0 +1,91 @@
+@import "base";
+
+#main-header {
+  @include clearfix;
+  margin-bottom: 20px;
+
+  #platform-logo {
+    float: left;
+  }
+
+  #account-container {
+    float: right;
+    margin-top: 22px;
+
+    #sign-up-button {
+      @include small-button;
+      text-transform: lowercase;
+      float: right;
+    }
+
+    #sign-out-link {
+      @include dark-link;
+      float: right;
+      font-size: $small-text;
+      line-height: $small-line-height + 8px;
+      text-transform: lowercase;
+    }
+
+    #log-in-link {
+      @include dark-link;
+      &:before {
+        content: "-";
+        margin: 0 7px;
+      }
+      float: right;
+      font-size: $small-text;
+      line-height: $small-line-height + 8px;
+      text-transform: lowercase;
+    }
+
+    #profile {
+      clear: both;
+      #data,
+      #amount-raised {
+        background: #ece5e9;
+        width: 234px;
+        height: 75px;
+        float: left;
+      }
+      #data {
+        @include border-left-radius(6px);
+        .name {
+          margin-left: 71px;
+          margin-top: 15px;
+          color: $dark-pink;
+          font-size: $medium-text;
+          line-height: $medium-line-height;
+        }
+        .location {
+          font-size: $small-text;
+          line-height: $medium-line-height;
+          margin-top: 5px;
+          margin-left: 71px;
+        }
+      }
+      #amount-raised {
+        @include border-right-radius(6px);
+        border-left: 1px solid #d4ced1;
+        p {
+          font-size: $medium-text;
+          color: $bright-pink;
+          line-height: $medium-line-height;
+          float: left;
+          width: 117px;
+          margin: 15px 0 0 7px;
+        }
+        .amount {
+          margin: 0;
+          width: 100px;
+          overflow: hidden;
+          color: $black;
+          font-size: $big-text;
+          line-height: 75px;
+          float: left;
+        }
+      }
+    }
+  }
+}
+
+

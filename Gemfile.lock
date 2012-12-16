@@ -175,5 +175,5 @@ DEPENDENCIES
   pg
   rails (= 3.2.1)
   rspec-rails (~> 2.0)
-  sass-rails (~> 3.2.3)
+  sass-rails (~> 3.2.4)
   uglifier (>= 1.0.3)

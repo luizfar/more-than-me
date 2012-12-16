@@ -1,0 +1,82 @@
+@import "compass/reset";
+@import "compass/layout";
+@import "compass/css3";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+
+$darker-pink: #ac4b8a;
+$dark-pink: #c33285;
+$bright-pink: #df71b8;
+
+$light-gray: #ece5e9;
+
+$black: #000;
+$white: #fff;
+
+$small-text: 14px;
+$medium-text: 16px;
+$bigish-text: 20px;
+$big-text: 44px;
+
+$small-line-height: 20px;
+$medium-line-height: 20px;
+
+* {
+  box-sizing: border-box;
+}
+
+@mixin small-button {
+  @include border-radius(3px);
+  background: $dark-pink;
+  padding: 4px 28px;
+  font-size: $small-text;
+  line-height: $small-line-height;
+  color: white;
+  &:hover {
+    background: $bright-pink;
+  }
+}
+
+@mixin big-button {
+  @include border-radius(6px);
+  background: $dark-pink;
+  padding: 11px 43px;
+  font-size: $bigish-text;
+  line-height: 24px;
+  color: white;
+  &:hover {
+    background: $bright-pink;
+  }
+}
+
+@mixin darker-link {
+  color: $darker-pink;
+  &:visited {
+    color: $darker-pink;
+  }
+  &:hover,
+  &:active {
+    color: $black;
+  }
+}
+
+@mixin dark-link {
+  color: $dark-pink;
+  &:visited {
+    color: $dark-pink;
+  }
+  &:active,
+  &:hover {
+    color: $black;
+  }
+}
+
+@mixin clearfix() {
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+  }
+}

@@ -1,0 +1,35 @@
+@import "base";
+
+#foundation-header {
+  background: url('foundation-bg.jpg');
+  height: 40px;
+  width: 100%;
+  overflow: auto;
+
+  #foundation-logo {
+    float: left;
+    background: url('foundation-logo.jpg') no-repeat;
+    margin: 7px 0 0 22px;
+    width: 156px;
+    height: 33px;
+  }
+
+  #foundation-menu {
+    float: right;
+    li {
+      color: $darker-pink;
+      display: inline-block;
+      line-height: 40px;
+      font-size: $small-text;
+      text-transform: lowercase;
+      a {
+        @include darker-link;
+      }
+    }
+    li + li {
+      &:before {
+        content: '-';
+      }
+    }
+  }
+}

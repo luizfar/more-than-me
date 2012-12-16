@@ -12,24 +12,25 @@
  *= require_tree .
 */
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
-@import "vars_and_mixins";
+@import "base";
 
 body {
-  background: url('brown.png');
   margin: 0;
-  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif;
-  #site_content {
-    width: 1000px;
-    margin: 5px auto;
-    #page_body {
-      clear: both;
-      background: $primary_color;
-      padding: 10px;
-    }
-  }
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif !important;
 }
 
 a { text-decoration: none; }
 
-.clear { clear: both; }
+.wrapper,
+.main-wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.main-wrapper {
+  margin-top: 18px;
+}
+
+#main-content {
+  clear: both;
+}
