@@ -39,15 +39,15 @@
             #profile.twelve.columns
               #data.five.columns
                 %p
-                  %a.name{href: '#'} Luiz Ribeiro
+                  = link_to current_user.full_name, '#'
                   %br
-                  %span.location Porto Alegre, Brazil
+                  %span.location= current_user.location
               #amount-raised.seven.columns
                 .six.columns
                   %p
                     raised the total amount of
                 .six.columns
-                  %span.amount $550
+                  %span.amount=current_user.formatted_amount_raised
     #main-content
       = yield
     #footer

@@ -17,6 +17,14 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :location
   before_create :initialize_amount_raised
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
+  def formatted_amount_raised
+    Money.new(self.amount_raised_in_cents, :usd).format(symbol: true)
+  end
+
   private
 
   def send_welcome_email

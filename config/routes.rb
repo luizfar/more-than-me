@@ -10,6 +10,8 @@ MoreThanMe::Application.routes.draw do
   end
 
   resources :campaigns do
+    get :donate
+    get :return_from_paypal
     collection do
       get :do_create
     end

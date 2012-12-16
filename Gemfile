@@ -10,6 +10,8 @@ gem 'heroku'
 gem 'devise'
 gem 'compass-rails'
 gem 'zurb-foundation'
+gem 'activemerchant', '~> 1.20.3'
+gem 'money', '3.7.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
