@@ -1,9 +1,11 @@
-@import "compass/reset";
-@import "compass/layout";
-@import "compass/css3";
-@import "foundation";
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+// MORE THAN ME TYPOGRAPHY
+$fontFamily: "Open Sans", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif;
 
+// FOUNDATION TYPOGRAPHY
+$headerFontFamily: $fontFamily;
+
+
+// MORE THAN ME COLOURS
 $darker-pink: #ac4b8a;
 $dark-pink: #c33285;
 $bright-pink: #df71b8;
@@ -21,10 +23,12 @@ $big-text: 44px;
 $small-line-height: 20px;
 $medium-line-height: 20px;
 
-* {
-  box-sizing: border-box;
-}
+// FOUNDATION COLOURS
+$mainColor: $dark-pink;
+$secondaryColor: $bright-pink;
 
+
+// MIXINGS
 @mixin small-button {
   @include border-radius(3px);
   background: $dark-pink;
