@@ -15,5 +15,17 @@
           = f.label :password_confirmation
           = f.password_field :password_confirmation
         %div
+          = f.label :first_name
+          %br
+          = f.text_field :first_name
+        %div
+          = f.label :last_name
+          %br
+          = f.text_field :last_name
+        %div
+          = f.label :location
+          %br
+          = f.text_field :location
+        %div
           = f.submit "Sign up"
       = render "devise/shared/links"
