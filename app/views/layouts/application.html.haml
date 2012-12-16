@@ -6,32 +6,35 @@
     %title More Than Me
     = stylesheet_link_tag :application
     = javascript_include_tag :application
-  %body.twelve
-    #foundation-header.twelve
-      .eight.columns.centered
-        #foundation-logo
-        %ul#foundation-menu
-          %li{class: 'about'}
-            = link_to 'About', 'http://morethanme.org/about.html'
-          %li{class: 'sheneedsyou'}
-            = link_to 'She Needs You', 'http://morethanme.org/sheneedsyou.html'
-          %li{class: 'meether'}
-            = link_to 'Meet Her', 'http://morethanme.org/meether.html'
-          %li{class: 'donate'}
-            = link_to 'Donate', 'http://morethanme.org/donate.html'
-          %li{class: 'blog'}
-            = link_to 'Blog', 'http://morethanme.org/blog.html'
-    .main-wrapper
-      #main-header
+  %body
+    #foundation-header
+      .row
+        .twelve.columns.centered
+          #foundation-logo
+          %ul#foundation-menu
+            %li{class: 'about'}
+              = link_to 'About', 'http://morethanme.org/about.html'
+            %li{class: 'sheneedsyou'}
+              = link_to 'She Needs You', 'http://morethanme.org/sheneedsyou.html'
+            %li{class: 'meether'}
+              = link_to 'Meet Her', 'http://morethanme.org/meether.html'
+            %li{class: 'donate'}
+              = link_to 'Donate', 'http://morethanme.org/donate.html'
+            %li{class: 'blog'}
+              = link_to 'Blog', 'http://morethanme.org/blog.html'
+    .row
+      .two.columns
         #platform-logo
           = link_to image_tag('main-logo.jpg', alt: 'More Than Me Platform', title: 'More Than Me Platform'), root_path
-        #account-container
+      .six.columns
+        .row
           #account-actions
             - if user_signed_in?
               = link_to 'Sign Out', destroy_user_session_path, id: 'sign-out-link'
             - else
               = link_to 'Log In', new_user_session_path, id: 'log-in-link'
               = link_to 'Sign Up', new_user_registration_path, id: 'sign-up-button'
+        .row
           - if user_signed_in?
             #profile
               #data
