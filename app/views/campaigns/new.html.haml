@@ -1,0 +1,16 @@
+.row
+  .eight.columns.centered
+    .panel
+      %h2 New campaign!
+      = form_for @campaign do |f|
+        = f.hidden_field :campaign_type
+        %div
+          = f.label :title
+          = f.text_field :title
+        %div
+          = f.label :description
+          = f.text_area :description
+        %div
+          = f.label :goal_in_cents
+          = f.text_field :goal_in_cents
+        = f.submit 'Create campaign', class: 'button'
