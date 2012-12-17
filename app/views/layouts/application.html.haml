@@ -31,9 +31,9 @@
             - if user_signed_in?
               = link_to 'Log Out', destroy_user_session_path, id: 'sign-out-link'
             - else
-              = link_to 'Log In', new_user_session_path, id: 'log-in-link'
+              = link_to 'Sign Up', new_user_registration_path, id: 'sign-up-button', class: 'small button'
               &nbsp;&middot;&nbsp;
-              = link_to 'Sign Up', new_user_registration_path, id: 'sign-up-button'
+              = link_to 'Log In', new_user_session_path, id: 'log-in-link'
         - if user_signed_in?
           .row
             #profile.twelve.columns
@@ -64,5 +64,8 @@
       .row
         .twelve.columns
           %p#copyright
-            More Than Me is a five star rated non-profit on Global Giving. We stretch every $ given to us to make the biggest impact possible. Our EIN # 26.259.9199 <br/>&copy; 2008-2010 More than Me Foundation a 501(c)(3) non-profit organization 
+            More Than Me is a five star rated non-profit on Global Giving. We stretch every $ given to us to make the biggest impact possible. Our EIN # 26.259.9199
+            %br
+            &copy; 2008-2010 More than Me Foundation a 501(c)(3) non-profit organization
     = javascript_include_tag :application
+    = yield :moar_scripts

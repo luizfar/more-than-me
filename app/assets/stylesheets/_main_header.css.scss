@@ -1,19 +1,5 @@
 #account-actions {
   float: right;
-  #sign-up-button {
-    @include small-button;
-  }
-  #sign-out-link {
-    @include dark-link;
-  }
-  #log-in-link {
-    @include dark-link;
-    &:before {
-      content: "-";
-      margin: 0 7px;
-    }
-    float: right;
-  }
 }
 #profile {
   @include border-radius(6px);

@@ -17,6 +17,7 @@ p {
       width: 305px;
     }
     .campaign-type {
+      background-color: white;
       border: 1px solid #E5E5E5;
       border-radius: 4px;
       display: block;
@@ -24,6 +25,9 @@ p {
       text-align: center;
       padding: 15px 30px;
       margin: 15px;
+      &:hover {
+        border-color: #000;
+      }
       span.image {
         display: inline-block;
         width: 156px;

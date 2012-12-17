@@ -1,0 +1,27 @@
+.row
+  .twelve.columns.centered
+  %h5
+    Welcome, #{current_user.email}!
+.row
+  .eight.columns
+    .panel
+      - if @campaigns.present?
+        %h5 Here are your current campaigns:
+        %dl
+          - @campaigns.each do |campaign|
+            %dt
+              %h4= link_to campaign.title, campaign_path(campaign)
+            %dd= campaign.description
+  .four.columns
+    %a.create-new-campaign-toggle.button.large{href: '#'} Create a new campaign
+.create-new-campaign{style: 'display: none'}
+  = render :partial => "campaigns/new_campaign_menu"
+= content_for :moar_scripts do
+  :javascript
+    $(function(){
+      $('.create-new-campaign-toggle').click(function(e){
+        e.preventDefault();
+        $('.create-new-campaign').toggle();
+      });
+    });
+
