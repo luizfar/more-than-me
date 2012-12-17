@@ -32,11 +32,11 @@ class CampaignsController < ApplicationController
   end
 
   def return_from_paypal
-    result = DonationService.new.complete_donation(params[:token],
+    donation = DonationService.new.complete_donation(params[:token],
       params[:PayerID],
       params[:order_id])
 
-    redirect_to campaign_path(params[:id])
+    redirect_to campaign_path(donation.campaign.id)
   end
 
   private
