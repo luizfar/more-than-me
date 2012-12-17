@@ -47,7 +47,7 @@
                   %p
                     raised the total amount of
                 .six.columns
-                  %span.amount=current_user.formatted_amount_raised
+                  %span.amount=format_money(current_user.amount_raised_in_cents)
     #main-content
       = yield
     .row

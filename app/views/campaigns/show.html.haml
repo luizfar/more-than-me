@@ -17,15 +17,15 @@
         .stats-name
           Raised
         .stats-value
-          $550
+          = format_money(@campaign.amount_raised_in_cents)
       .four.columns
         .progress.twelve
-          .meter{style: 'width: 27,5%'} 27.5%
+          .meter{style: "width: #{@campaign.progress >= 100 ? 100 : @campaign.progress}%"}="#{@campaign.progress}%"
       .one.columns
         .stats-name
           Goal
         .stats-value
-          $2,000
+          = format_money(@campaign.goal_in_cents)
       .two.columns
         .stats-name
           Girls in School
@@ -35,12 +35,12 @@
         .stats-name
           Donations
         .stats-value
-          55
+          = @campaign.donations.size
       .two.columns.end
         .stats-name
           Days Left
         .stats-value
-          31
+          = @campaign.days_left
   .row
     .eight.columns
       .panel.callout

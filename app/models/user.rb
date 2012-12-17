@@ -21,10 +21,6 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def formatted_amount_raised
-    Money.new(self.amount_raised_in_cents, :usd).format(symbol: true)
-  end
-
   private
 
   def send_welcome_email
