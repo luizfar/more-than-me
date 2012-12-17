@@ -9,8 +9,8 @@ class DonationService
     response = gateway.setup_purchase(amount,
       ip: remote_ip,
       currency: currency.to_s.upcase,
-      return_url: "#{return_url}&order_id=#{order_id}",
-      cancel_url: cancel_url,
+      return_url: append_to_url(return_url, 'order_id', order_id),
+      cancel_return_url: cancel_url,
       no_shipping: 1,
       order_id: order_id,
       description: description,
@@ -20,7 +20,7 @@ class DonationService
 
     donation_request = DonationRequest.new(
       :campaign_id => campaign.id,
-      :order_id => order.id,
+      :order_id => order_id,
       :currency => currency,
       :amount_in_cents => amount,
       :token => response.token
@@ -32,7 +32,9 @@ class DonationService
 
   def complete_donation(token, payer_id, order_id)
     gateway = new_gateway
-    donation_request = DonationRequest.where(token: token, order_id: order_id)
+    puts "token #{token}"
+    puts "order_id #{order_id}"
+    donation_request = DonationRequest.where(token: token, order_id: order_id).first
 
     response = gateway.purchase(donation_request.amount_in_cents,
       currency: donation_request.currency.to_s.upcase,
@@ -54,17 +56,21 @@ class DonationService
       transaction_id: response.authorization)
 
     donation.save!
+    donation
   end
 
   private
 
   def new_gateway
-    puts "HERE"
-    puts ENV['MTM_PAYPAL_LOGIN']
+    ActiveMerchant::Billing::Base.gateway_mode = :test if Rails.env.development? || Rails.env.test?
     ActiveMerchant::Billing::PaypalExpressGateway.new({
       login: ENV['MTM_PAYPAL_LOGIN'],
       password: ENV['MTM_PAYPAL_PASSWORD'],
       signature: ENV['MTM_PAYPAL_SIGNATURE']
     })
+  end
+
+  def append_to_url(url, param_name, param_value)
+    url.include?('?') ? "#{url}&#{param_name}=#{param_value}" : "#{url}?#{param_name}=#{param_value}"
   end
 end
