@@ -8,8 +8,7 @@
       .panel.callout.radius
         .row
           .seven.columns
-            %p
-              Show your friends you are dedicated to our cause and be the first to donate!
+            %p Show your friends you are dedicated to our cause and be the first to donate!
           .five.columns.end
             = link_to 'Donate now!', campaign_donate_path(@campaign), id: 'donate-button', class: 'large button'
   #campaign-stats.stats-box.panel
@@ -43,12 +42,16 @@
         .stats-value
           31
   .row
-    %p
-      Description:
-      = @campaign.description
-    %p
-      Goal:
-      = (@campaign.goal_in_cents / 100)
-    %p
-      End Date:
-      = @campaign.end_date
+    .eight.columns
+      .panel.callout
+        %p
+          Description:
+          = @campaign.description
+        %p
+          Goal:
+          = (@campaign.goal_in_cents / 100)
+    .four.columns
+      .panel
+        %p
+          End Date:
+          = @campaign.end_date

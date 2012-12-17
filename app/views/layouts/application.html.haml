@@ -50,22 +50,23 @@
                   %span.amount=current_user.formatted_amount_raised
     #main-content
       = yield
+    .row
+      %hr
     #footer
       .row
-        #footer-logo.four.columns
-        #footer-menu.eight.columns.end
+        .two.columns
+          #footer-logo
+        #footer-menu.ten.columns.end
           %ul.inline-list
             %li= link_to 'ABOUT US', 'http://morethanme.org/about.html'
             %li= link_to 'SHE NEEDS YOU', 'http://morethanme.org/sheneedsyou.html'
             %li= link_to 'MEET HER', 'http://morethanme.org/meether.html'
             %li= link_to 'DONATE', 'http://morethanme.org/donate.html'
             %li= link_to 'BLOG', 'http://morethanme.org/blog'
-            %li{:style => 'border-right: none;'}= link_to 'SITE MAP', 'http://morethanme.org/sitemap.html'
-      .row
-        .twelve.columns
+            %li{style: 'border-right: none;'}= link_to 'SITE MAP', 'http://morethanme.org/sitemap.html'
           %p#copyright
             More Than Me is a five star rated non-profit on Global Giving. We stretch every $ given to us to make the biggest impact possible. Our EIN # 26.259.9199
             %br
-            &copy; 2008-2010 More than Me Foundation a 501(c)(3) non-profit organization
+            &copy; 2008—2012 More than Me Foundation a 501(c)(3) non-profit organization
     = javascript_include_tag :application
     = yield :moar_scripts
