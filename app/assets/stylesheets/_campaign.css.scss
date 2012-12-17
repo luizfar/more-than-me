@@ -26,3 +26,17 @@ div.progress {
   line-height: 44px;
   font-weight: bold;
 }
+
+#donation-form {
+  position: absolute;
+  border: 1px solid $dark-pink;
+  padding: 15px 25px 18px;
+  width: 350px;
+  top: 0px;
+  left: 0px;
+  background: url('background.png') repeat scroll left top !important;
+  h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}

@@ -28,7 +28,13 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     cancel_url = campaign_url(@campaign.id)
     return_url = campaign_return_from_paypal_url(@campaign.id)
-    redirect_to DonationService.new.setup_donation(@campaign, 100, cancel_url, return_url, request.remote_ip)
+    redirect_to DonationService.new.setup_donation(@campaign,
+        params[:amount].to_i * 100,
+        params[:first_name],
+        params[:last_name],
+        cancel_url,
+        return_url,
+        request.remote_ip)
   end
 
   def return_from_paypal

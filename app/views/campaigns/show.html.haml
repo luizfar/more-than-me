@@ -10,7 +10,7 @@
           .seven.columns
             %p Show your friends you are dedicated to our cause and be the first to donate!
           .five.columns.end
-            = link_to 'Donate now!', campaign_donate_path(@campaign), id: 'donate-button', class: 'large button'
+            = link_to 'Donate now!', '#', id: 'donate-button', class: 'large button'
   #campaign-stats.stats-box.panel
     .row
       .one.columns
@@ -55,3 +55,21 @@
         %p
           End Date:
           = @campaign.end_date
+
+#donation-form{style: 'display: none'}
+  %h2
+    Donation Information
+  %form{method: 'post', action: "#{campaign_donate_path(@campaign.id)}"}
+    .input-wrapper
+      %label{for: 'amount'}
+        How much do you want to donate?
+      %input#amount{name: 'amount', type: 'text'}
+    .input-wrapper
+      %label{for: 'first-name'}
+        Your first name
+      %input#first-name{name: 'first_name', type: 'text'}
+    .input-wrapper
+      %label{for: 'last-name'}
+        Your last name
+      %input#last-name{name: 'last_name', type: 'text'}
+    %input{type: 'submit', class: 'large button', value: 'Donate!'}

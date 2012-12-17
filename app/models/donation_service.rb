@@ -1,12 +1,12 @@
 class DonationService
-  def setup_donation(campaign, amount, cancel_url, return_url, remote_ip)
+  def setup_donation(campaign, amount_in_cents, first_name, last_name, cancel_url, return_url, remote_ip)
     currency = :usd
     gateway = new_gateway
 
-    formatted_amount = Money.new(amount, currency).format(symbol: true)
+    formatted_amount = Money.new(amount_in_cents, currency).format(symbol: true)
     description = "Donation of #{formatted_amount} to #{campaign.owner.full_name}'s campaign on the More Than Me Platform"
     order_id = UUID.generate.to_s
-    response = gateway.setup_purchase(amount,
+    response = gateway.setup_purchase(amount_in_cents,
       ip: remote_ip,
       currency: currency.to_s.upcase,
       return_url: append_to_url(return_url, 'order_id', order_id),
@@ -14,16 +14,18 @@ class DonationService
       no_shipping: 1,
       order_id: order_id,
       description: description,
-      items: [{amount: amount, name: description}])
+      items: [{amount: amount_in_cents, name: description}])
 
     raise DonationError.new(response) unless response.success?
 
     donation_request = DonationRequest.new(
-      :campaign_id => campaign.id,
-      :order_id => order_id,
-      :currency => currency,
-      :amount_in_cents => amount,
-      :token => response.token
+      campaign_id: campaign.id,
+      order_id: order_id,
+      currency: currency,
+      amount_in_cents: amount_in_cents,
+      first_name: first_name,
+      last_name: last_name,
+      token: response.token
     )
     donation_request.save!
 
@@ -51,8 +53,8 @@ class DonationService
       currency: donation_request.currency,
       amount_in_cents: donation_request.amount_in_cents,
       payer_email: transaction_info.email,
-      payer_first_name: transaction_info.info['PayerName']['FirstName'],
-      payer_last_name: transaction_info.info['PayerName']['LastName'],
+      payer_first_name: donation_request.first_name,
+      payer_last_name: donation_request.last_name,
       transaction_id: response.authorization)
 
     donation.save!

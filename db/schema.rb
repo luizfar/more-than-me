@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121216183356) do
+ActiveRecord::Schema.define(:version => 20121217041500) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "title"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20121216183356) do
     t.string  "currency"
     t.integer "amount_in_cents"
     t.string  "token"
+    t.string  "first_name"
+    t.string  "last_name"
   end
 
   create_table "donations", :force => true do |t|
