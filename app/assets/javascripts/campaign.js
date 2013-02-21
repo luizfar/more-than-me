@@ -12,8 +12,11 @@ mtm.createCampaign = function (campaignView) {
       if(isGoalAmountInvalid($(this))){
         campaignView.goalErrorMessage.show();
         campaignView.changeToErrorBackground(campaignView.goal);  
-      } 
-      $(this).val();
+      } else{
+        var formattedGoalAmount = parseFloat($(this).val()).toFixed(2);
+         $(this).val(formattedGoalAmount);   
+      }
+     
     });
 
     campaignView.submitButton.click(function (e) {
