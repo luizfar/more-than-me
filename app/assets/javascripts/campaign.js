@@ -7,6 +7,14 @@ mtm.createCampaign = function (campaignView) {
     if (!campaignView.form) {
       return;
     }
+    
+    campaignView.goal.blur(function(){
+      if(isGoalAmountInvalid($(this))){
+        campaignView.goalErrorMessage.show();
+        campaignView.changeToErrorBackground(campaignView.goal);  
+      } 
+      $(this).val();
+    });
 
     campaignView.submitButton.click(function (e) {
       e.preventDefault();
@@ -29,7 +37,7 @@ mtm.createCampaign = function (campaignView) {
       formValid =false;
     }  
 
-    if (isEmpty(campaignView.goal) || isGoalAmountInvalid(campaignView.goal)) {
+    if (isGoalAmountInvalid(campaignView.goal)) {
       campaignView.goalErrorMessage.show();
       campaignView.changeToErrorBackground(campaignView.goal);
       formValid =false;
@@ -39,7 +47,8 @@ mtm.createCampaign = function (campaignView) {
 
   var isGoalAmountInvalid = function(goal){
     var regex = /^[0-9]+(\.[0-9]{1,2})?$/;
-    return goal.val().search(regex) !== 0;
+    var validFormat = goal.val().search(regex) === 0;
+    return validFormat ? parseFloat(goal.val()) < 1 : true;
   };
 
   var isEmpty = function(element){
