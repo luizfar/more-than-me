@@ -40,3 +40,16 @@ div.progress {
     margin-bottom: 20px;
   }
 }
+#error-goal {
+  display: none;
+  color: red;
+}
+input.error-background {
+    background: #f8dbdb;
+    border-color: #e77776;  
+}
+
+textArea.error-background {
+    background: #f8dbdb;
+    border-color: #e77776;  
+}
