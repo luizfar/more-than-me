@@ -9,6 +9,7 @@ class CampaignsController < ApplicationController
 
   def create
     @campaign = Campaign.new(params[:campaign].merge(:owner => current_user, :end_date => Date.today + 30.days))
+    convertFromDollarsToCents
     if user_signed_in?
       store_temp_campaign_data
       do_create
@@ -50,5 +51,9 @@ class CampaignsController < ApplicationController
   def store_temp_campaign_data
     session[:campaign] = @campaign
     session[:return_url] = do_create_campaigns_url
+  end
+
+  def convertFromDollarsToCents 
+    @campaign.goal_in_cents = @campaign.goal_in_cents * 100
   end
 end

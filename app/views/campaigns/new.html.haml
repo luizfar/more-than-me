@@ -10,7 +10,10 @@
         %div
           = f.label :description
           = f.text_area :description
+          
         %div
-          = f.label :goal_in_cents
-          = f.text_field :goal_in_cents
-        = f.submit 'Create campaign', class: 'button'
+          = f.label :goal
+          <div id='error-goal'>Please enter valid campaign amount.</div>
+          = f.text_field :goal_in_cents, id: 'goal'
+        %div
+          = f.submit 'Create campaign', class: 'button', id: 'create-campaign'
