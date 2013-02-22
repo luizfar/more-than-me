@@ -10,7 +10,7 @@ class Campaign < ActiveRecord::Base
   end
 
   def progress
-    amount_raised_in_cents / goal_in_cents * 100
+    amount_raised_in_cents / goal_in_cents
   end
 
   def days_left
