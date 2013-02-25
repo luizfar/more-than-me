@@ -54,6 +54,6 @@ class CampaignsController < ApplicationController
   end
 
   def convertFromDollarsToCents 
-    @campaign.goal_in_cents = @campaign.goal_in_cents * 100
+    @campaign.goal_in_cents =  params[:campaign][:goal_in_cents].to_f * 100
   end
 end
