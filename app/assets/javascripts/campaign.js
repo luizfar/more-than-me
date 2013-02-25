@@ -13,10 +13,18 @@ mtm.createCampaign = function (campaignView) {
         campaignView.goalErrorMessage.show();
         campaignView.changeToErrorBackground(campaignView.goal);  
       } else{
-        var formattedGoalAmount = parseFloat($(this).val()).toFixed(2);
-         $(this).val(formattedGoalAmount);   
+          campaignView.goalErrorMessage.hide();
+          campaignView.clearError($(this));
+          var formattedGoalAmount = parseFloat($(this).val()).toFixed(2);
+          $(this).val(formattedGoalAmount);   
       }
      
+    });
+
+    campaignView.title.add(campaignView.description).blur(function(){
+      if(!isEmpty($(this))){
+        campaignView.clearError($(this));
+      }
     });
 
     campaignView.submitButton.click(function (e) {
@@ -72,5 +80,10 @@ $(function () {
   campaignView.changeToErrorBackground = function(element){
     element.addClass('error-background');
   };
+
+  campaignView.clearError = function(element){
+    element.removeClass('error-background');
+  };
+
   mtm.createCampaign(campaignView).bind();
 });
