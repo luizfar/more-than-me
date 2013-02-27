@@ -13,7 +13,20 @@ class Campaign < ActiveRecord::Base
     amount_raised_in_cents / goal_in_cents
   end
 
+  def amount_needed_for_one_more_girl
+    @amount_per_year_in_cents = 25000
+    puts amount_raised_in_cents
+    @amount_per_year_in_cents - (amount_raised_in_cents - (number_of_girls_in_school * @amount_per_year_in_cents)) 
+
+  end
+
   def days_left
     (end_date.to_date - Date.today).to_i
+  end
+
+  private
+
+  def number_of_girls_in_school  
+    (amount_raised_in_cents / @amount_per_year_in_cents).to_i
   end
 end

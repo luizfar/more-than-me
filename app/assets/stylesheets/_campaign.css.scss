@@ -18,13 +18,20 @@ div.progress {
 .stats-box {
   text-align: center;
 }
-.stats-name {
+.stats-name{
   color: $bright-pink;
 }
 .stats-value {
   font-size: 28px;
   line-height: 44px;
   font-weight: bold;
+}
+
+#one-more-girl {
+  color: $dark-pink;
+  font-size: 20px;
+  line-height: 44px;
+  font-weight: bold;  
 }
 
 #donation-form {
