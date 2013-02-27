@@ -23,9 +23,7 @@ class Campaign < ActiveRecord::Base
   def days_left
     (end_date.to_date - Date.today).to_i
   end
-
-  private
-
+  
   def number_of_girls_in_school  
     (amount_raised_in_cents / @amount_per_year_in_cents).to_i
   end
