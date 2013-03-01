@@ -1,0 +1,35 @@
+%ul#login-form
+  %li
+    %h2
+      Log In
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      = content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] 
+      %div
+        = f.label :email
+        = f.email_field :email
+      %div
+        = f.label :password
+        = f.password_field :password
+      - if devise_mapping.rememberable?
+        %div
+          = f.check_box :remember_me
+          = f.label :remember_me
+      %div= f.submit "Log In", class: 'button'
+      = render "devise/shared/links"
+
+
+/ <li>
+/ <form class="js-signin signin" method="post" action="https://twitter.com/sessions">
+/ <fieldset class="textbox">
+/ <label class="username js-username">
+/ <label class="password js-password">
+/ </fieldset>
+/ <fieldset class="subchck">
+/ <input type="hidden" name="scribe_log">
+/ <input type="hidden" value="/damaneice" name="redirect_after_login">
+/ <input type="hidden" name="authenticity_token" value="bd1de365bfb31c325d820dbc8d9af017e43aedca">
+/ <div class="divider"></div>
+/ <p class="footer-links">
+/ </form>
+/ </li>
+/ </ul>

@@ -11,6 +11,11 @@
             %p Show your friends you are dedicated to our cause and be the first to donate!
           .five.columns.end
             = link_to 'Donate now!', '#', id: 'donate-button', class: 'large button'
+  .panel
+    .row
+      .columns
+        #one-more-girl
+          = format_money(@campaign.amount_needed_for_one_more_girl) + ' needed to put one more girl in school!'    
   #campaign-stats.stats-box.panel
     .row
       .one.columns
@@ -30,7 +35,7 @@
         .stats-name
           Girls in School
         .stats-value
-          4
+          = @campaign.number_of_girls_in_school
       .two.columns
         .stats-name
           Donations

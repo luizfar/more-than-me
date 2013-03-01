@@ -1,9 +1,10 @@
 .row
   .eight.columns.centered
-    .panel
+    #login.panel
       %h2
         Log In
       = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+        = content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] 
         %div
           = f.label :email
           = f.email_field :email
